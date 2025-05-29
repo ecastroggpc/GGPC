@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Page Slider</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="viewer"></iframe>
+
+  <script>
+    const urls = [
+      "https://script.google.com/a/macros/ggpc.com.ph/s/AKfycby9FMoDI1yST9Zql0mFXXs0Sk5e_Sl4L5cm33ePxFzqlYHng42QKAN18OF6Zwm7HZ3tgA/exec",
+      "https://script.google.com/a/macros/ggpc.com.ph/s/AKfycbwXL4VHb_Wv3lnefh0JCz7Jn7sE3HmEEqKbYJqu5QrlUmNTDv6uLOj7zsK_3Lcqt9uQ/exec",
+      "https://script.google.com/a/macros/ggpc.com.ph/s/AKfycbwvsihGUuVG012flegXlxqMoRW0ur6ealnTZYY1sthJ8hINjHOGxJZ9y_ghyF2gOUQy/exec"
+    ];
+
+    let current = 0;
+    const iframe = document.getElementById('viewer');
+    const interval = 5000;
+
+    function loadNextPage() {
+      iframe.src = urls[current];
+      current = (current + 1) % urls.length;
+    }
+
+    loadNextPage();
+    setInterval(loadNextPage, interval);
+  </script>
+</body>
+</html>
